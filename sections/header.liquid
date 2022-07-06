@@ -1,17 +1,6 @@
-{%- comment -%}
-  This is a required section for the Shopify Theme Store.
-  It is available in the "Header" section in the theme editor.
-
-  Theme Store required settings
-  - Show announcement
-  - Text: message to announce
-  - Link: link of the announcement bar
-
-  Theme Store optional settings
-  - Home page only: only shows on the home page
-{%- endcomment -%}
+<!--  -->
 <section data-section-id="{{ section.id }}" data-section-type="header">
-  {%- if section.settings.announcement_bar_enabled -%}
+  <!-- {%- if section.settings.announcement_bar_enabled -%}
     <div>
       {%- if section.settings.announcement_bar_home_page_only == false or template.name == 'index' -%}
         {%- if section.settings.announcement_bar_link != blank -%}
@@ -23,80 +12,341 @@
         {%- endif -%}
       {%- endif -%}
     </div>
-  {%- endif -%}
-
-  <header role="banner">
-    {% if template.name == 'index' %}
-      <h1>
-    {% else %}
-      <div class="h1">
-    {% endif %}
-        <a href="/" class="logo-image">
-          {% if section.settings.logo != blank %}
-            {% capture image_size %}{{ section.settings.logo_max_width }}x{% endcapture %}
-            <img src="{{ section.settings.logo | img_url: image_size }}"
-                srcset="{{ section.settings.logo | img_url: image_size }} 1x, {{ section.settings.logo | img_url: image_size, scale: 2 }} 2x"
-                alt="{{ section.settings.logo.alt | default: shop.name }}">
-          {% else %}
-            {{ shop.name }}
-          {% endif %}
-        </a>
-    {% if template.name == 'index' %}
-      </h1>
-    {% else %}
+  {%- endif -%} -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.3/TweenMax.min.js"></script>
+  <div class="super_container">
+    
+    <header class="header" role="banner">
+  
+      <div class="container-fluid header_main">
+        <div class="container">
+          <div class="row">
+            <!-- Logo -->
+            <div class="col-lg-3 col-sm-3 col-3 order-1">
+              <div class="logo_container">
+                <div class="logo"><a href="#">{% if section.settings.logo != blank %}
+                  {% capture image_size %}{{ section.settings.logo_max_width }}x{% endcapture %}
+                  <img src="{{ section.settings.logo | img_url: image_size }}"
+                      srcset="{{ section.settings.logo | img_url: image_size }} 1x, {{ section.settings.logo | img_url: image_size, scale: 2 }} 2x"
+                      alt="{{ section.settings.logo.alt | default: shop.name }}">
+                {% else %}
+                  {{ shop.name }}
+                {% endif %}</a></div>
+              </div>
+            </div>
+            <!-- Search -->
+            <div class="col-lg-6 col-12 order-lg-2 order-3 text-lg-left text-right">
+              <div class="header_search">
+                <div class="header_search_content">
+                  <div class="header_search_form_container">
+                    <form action="#" class="header_search_form clearfix">
+                      <input type="search" required="required" class="header_search_input" placeholder="Search products...">
+                      <div class="custom_dropdown" style="display: none;">
+                        <div class="custom_dropdown_list">
+                          <span class="custom_dropdown_placeholder clc">All Categories</span>
+                          <i class="fas fa-chevron-down"></i>
+                          <ul class="custom_list clc">
+                            <li><a class="clc" href="#">All Categories</a></li>
+                            <li><a class="clc" href="#">Computers</a></li>
+                            <li><a class="clc" href="#">Laptops</a></li>
+                            <li><a class="clc" href="#">Cameras</a></li>
+                            <li><a class="clc" href="#">Hardware</a></li>
+                            <li><a class="clc" href="#">Smartphones</a></li>
+                          </ul>
+                        </div>
+                      </div>
+                      <button type="submit" class="header_search_button trans_300" value="Submit">
+                        <i class="fas fa-search"></i>
+                      </button>
+                    </form>
+                  </div>
+                </div>
+              </div>
+            </div>
+  
+            <!-- Wishlist -->
+            <div class="col-lg-3 col-9 order-lg-3 order-2 text-lg-left text-right">
+              <div class="wishlist_cart d-flex flex-row align-items-center justify-content-end">
+                
+                <div class="wishlist d-flex flex-row align-items-center justify-content-end">
+                  <div class="wishlist_icon"><i class="fa-solid fa-circle-user"></i></div>
+                </div>
+  
+                <!-- Cart -->
+                <div class="cart">
+                  <div class="cart_container d-flex flex-row align-items-center justify-content-end">
+                    <div class="cart_icon">
+                      <i class="fa-solid fa-cart-shopping"></i>
+                      <div class="cart_count"><span>3</span></div>
+                    </div>
+                    <div class="cart_content">
+                      <!-- <div class="cart_text"><a href="#">Cart</a></div> -->
+                      <div class="cart_price"></div>
+                    </div>
+                    
+                  </div>
+                </div>
+                <div id="headphone" class="headphone">
+                  <div id="headphone_container" class="headphone_container d-flex flex-row align-items-center justify-content-end">
+                    <div class="headphone_icon">
+                      <strong>Call us</strong>
+                      <strong>123-456-7890</strong>
+                    </div>
+                    <div id="headphone_item_icon" class="headphone_item_icon">
+                      <i class="fa-solid fa-headphones-simple"></i>
+                    </div>
+                  </div>
+                  <div class="menu_trigger_container ml-auto">
+                    <div class="menu_trigger d-flex flex-row align-items-center justify-content-end">
+                      <div class="menu_burger">
+                        <div class="cat_burger menu_burger_inner"><i class="fa-solid fa-bars"></i></span></div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                
+              </div>
+            </div>
+            <!-- Menu Trigger -->
+          </div>
+        </div>
       </div>
-    {% endif %}
+      <nav  class="main_nav">
+        <div class="container">
+          <div class="row">
+            <div class="col">
+              <div class="main_nav_content d-flex flex-row">
+                  <ul class="standard_dropdown main_nav_dropdown dropdown">
+                    {% for link in linklists[section.settings.menu].links %}
+                      {% if link.links != blank %}
+                        <li class="dropdown ">
+                          <a class="dropdown-toggle" id="dropdownMenuButton" data-toggle="dropdown" href="">{{ link.title }}</a>
+                          <ul class="dropdown-content dropdown-menu" aria-labelledby="dropdownMenuButton">
+                            {% for childlink in link.links %}
+                            <li class="dropdown-item">
+                              <a href="{{ childlink.url }}">{{ childlink.title }}</a>
+                            </li>
+                            {% endfor %}
+                          </ul>
+                        </li>
+                    {% else %}
+                    <li><a href="{{ link.url }}">{{ link.title }}</a></li>
+                    {% endif %}
+                  {% endfor %}
+                  </ul>
+  
+                
+  
+              </div>
+            </div>
+          </div>
+        </div>
+      </nav>
+      <!-- Menu -->
+      <!-- mobie -->
+      <div class="page_menu">
+        <div class="container">
+          <div class="row">
+            <div class="col">
+              
+              <div class="page_menu_content">
+                
+                <div class="page_menu_search">
+                  <form action="#">
+                    <input type="search" required="required" class="page_menu_search_input" placeholder="Search for products...">
+                  </form>
+                </div>
+                <ul class="page_menu_nav">
+                  {% for link in linklists[section.settings.menu].links %}
+                  {% if link.links != blank %}
+                  <li class="page_menu_item has-children">
+                    <a href="#">{{ link.title }}<i class="fa fa-angle-down"></i></a>
+                    <ul class="page_menu_selection">
+                      {% for childlink in link.links %}
+                      <li><a href="{{ childlink.url }}">{{ childlink.title }}<i class="fa fa-angle-down"></i></a></li>
+                      {% endfor %}
+                    </ul>
+                  </li>
+                  {% else %}
+                  <li class="page_menu_item has-children"> 
+                    <a href="{{ link.url }}">{{ link.title }}</i></a>
+                  </li>
+                  {% endif %}
+                  {% endfor %}
+                </ul>
+                
+                <div class="menu_contact">
+                  <div class="menu_contact_item"><div class="menu_contact_icon"><img src="images/phone_white.png" alt=""></div>+38 068 005 3570</div>
+                  <div class="menu_contact_item"><div class="menu_contact_icon"><img src="images/mail_white.png" alt=""></div><a href="mailto:fastsales@gmail.com">fastsales@gmail.com</a></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+  
+    </header>
+  <script>
+$(document).ready(function()
+{
+    "use strict";
+    var menuActive = false;
+    var header = $('.header');
+    //setHeader();
+    initCustomDropdown();
+    initPageMenu();
+    if(window.innerWidth < 900){
+      $('#headphone_container').remove();
+    }
+    function setHeader()
+    { 
+        if(wit > 991 && menuActive)
+        { 
+            closeMenu();
+        }
+    }
 
-    <a href="/cart">
-      {% include 'icon-cart' %}
-      {{ 'layout.cart.title' | t }}
-      ({{ cart.item_count }} {{ 'layout.cart.items_count' | t: count: cart.item_count }})
-    </a>
+    function initCustomDropdown()
+    {
+        
+        if($('.custom_dropdown_placeholder').length && $('.custom_list').length)
+        {
+            var placeholder = $('.custom_dropdown_placeholder');
+            var list = $('.custom_list');
+        }
 
-    {% if shop.customer_accounts_enabled %}
-      <ul>
-        {% if customer %}
-          <li>
-            {% if customer.first_name != blank %}
-              {% capture first_name %}<a href="/account">{{ customer.first_name }}</a>{% endcapture %}
-              {{ 'layout.customer.logged_in_as_html' | t: first_name: first_name }}
-            {% else %}
-              <a href="/account">{{ 'layout.customer.account' | t }}</a>
-            {% endif %}
-          </li>
-          <li>
-            {{ 'layout.customer.log_out' | t | customer_logout_link }}
-          </li>
-        {% else %}
-          <li>
-            {{ 'layout.customer.log_in' | t | customer_login_link }}
-          </li>
-          <li>
-            {{ 'layout.customer.create_account' | t | customer_register_link }}
-          </li>
-        {% endif %}
-      </ul>
-    {% endif %}
+        placeholder.on('click', function (ev)
+        {
+            if(list.hasClass('active'))
+            {
+                list.removeClass('active');
+            }
+            else
+            {
+                list.addClass('active');
+            }
 
-    <form action="/search" method="get" role="search">
-      <label for="Search-{{ section.id }}" class="label-hidden">
-        {{ 'general.search.placeholder' | t }}
-      </label>
+            $(document).one('click', function closeForm(e)
+            {
+                if($(e.target).hasClass('clc'))
+                {
+                    $(document).one('click', closeForm);
+                }
+                else
+                {
+                    list.removeClass('active');
+                }
+            });
 
-      <input type="search"
-        name="q"
-        id="Search-{{ section.id }}"
-        value="{{ search.terms | escape }}"
-        placeholder="{{ 'general.search.placeholder' | t }}">
+        });
 
-      <button type="submit" class="button">
-        {% include 'icon-search' %}
-        <span class="icon-fallback-text">{{ 'general.search.submit' | t }}</span>
-      </button>
-    </form>
-  </header>
+        $('.custom_list a').on('click', function (ev)
+        {
+            ev.preventDefault();
+            var index = $(this).parent().index();
 
-  <nav role="navigation">
+            placeholder.text( $(this).text() ).css('opacity', '1');
+
+            if(list.hasClass('active'))
+            {
+                list.removeClass('active');
+            }
+            else
+            {
+                list.addClass('active');
+            }
+        });
+
+
+        $('select').on('change', function (e)
+        {
+            placeholder.text(this.value);
+
+            $(this).animate({width: placeholder.width() + 'px' });
+        });
+    }
+
+    /* 
+
+    4. Init Page Menu
+
+    */
+
+    function initPageMenu()
+    {
+        if($('.page_menu').length && $('.page_menu_content').length)
+        {
+            var menu = $('.page_menu');
+            var menuContent = $('.page_menu_content');
+            var menuTrigger = $('.menu_trigger');
+
+            //Open / close page menu
+            menuTrigger.on('click', function()
+            {
+                if(!menuActive)
+                {
+                    openMenu();
+                }
+                else
+                {
+                    closeMenu();
+                }
+            });
+
+            //Handle page menu
+            if($('.page_menu_item').length)
+            {
+        
+                var items = $('.page_menu_item');
+                items.each(function()
+                {
+                    var item = $(this);
+                    if(item.hasClass("has-children"))
+                    {
+                        item.on('click', function(evt)
+                        {
+                            evt.preventDefault();
+                            evt.stopPropagation();
+                            var subItem = item.find('> ul');
+                            if(subItem.hasClass('active'))
+                            {
+                                subItem.toggleClass('active');
+                                TweenMax.to(subItem, 0.3, {height:0});
+                            }
+                            else
+                            {
+                                subItem.toggleClass('active');
+                                TweenMax.set(subItem, {height:"auto"});
+                                TweenMax.from(subItem, 0.3, {height:0});
+                            }
+                        });
+                    }
+                });
+            }
+        }
+    }
+
+    function openMenu()
+    {
+        var menu = $('.page_menu');
+        var menuContent = $('.page_menu_content');
+        TweenMax.set(menuContent, {height:"auto"});
+        TweenMax.from(menuContent, 0.3, {height:0});
+        menuActive = true;
+    }
+
+    function closeMenu()
+    {
+        var menu = $('.page_menu');
+        var menuContent = $('.page_menu_content');
+        TweenMax.to(menuContent, 0.3, {height:0});
+        menuActive = false;
+    }  
+});
+  </script>
+  </div>
+  <!-- navbar trí -->
+  <!-- <nav role="navigation">
     <ul>
       {% for link in linklists[section.settings.menu].links %}
         {% if link.links != blank %}
@@ -124,7 +374,8 @@
         {% endif %}
       {% endfor %}
     </ul>
-  </nav>
+  </nav> -->
+  
 </section>
 
 {% if section.settings.logo != blank %}
