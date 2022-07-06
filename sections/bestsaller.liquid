@@ -1,0 +1,172 @@
+<section>
+  <div class="container-fluid">
+    <div class="best-saller row d-flex justify-content-center">
+      <!-- <div class="col-sm-5">
+        <div class="row"> sdfg</div>
+        <div class="row">sdfghjk</div>
+      </div>
+      <div class="col-sm-5">
+        {% if section.settings.video_oanh != blank %}
+        <div class="best-saler-video">
+          <iframe width="100%" height="828px"  src="{{section.settings.video_oanh}}" title="YouTube video player" frameborder="0" 
+           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+          
+        {% endif %}
+      </div>
+      <div class="col-sm-5">sdfg</div> -->
+      <div class="col-xl-5 d-flex flex-column align-self-center">
+        {% if section.settings.title != blank %} 
+          <div class="best-sallet-tilte">{{section.settings.title}}</div>
+        {% endif %}
+        {% if section.settings.title-content != blank %}
+          <div class="best-sallet-tilte-content">{{section.settings.title-content}}</div>
+        {% endif %}
+        <div class="row best-sallet-row">
+          <div class="col-3">
+            {% if section.settings.title != blank %}
+              <img class="best-saller-image" src="{{section.settings.image-icon-baby | img_url: 'master'}}" alt="">
+            {% endif %}
+          </div>
+          <div class="col-9">
+            {% if section.settings.title != blank %}
+            <div class="best-sallet-content">{{section.settings.content-baby}}</div>
+            {% endif %}
+          </div>
+        </div>
+        <div class="row best-sallet-row">
+          <div class="col-3">
+            {% if section.settings.title != blank %}
+              <img class="best-saller-image" src="{{section.settings.image-icon-mattress | img_url: 'master'}}" alt="">
+            {% endif %}
+          </div>
+          <div class="col-9">
+            {% if section.settings.title != blank %}
+            <div class="best-sallet-content">{{section.settings.content-mattress}}</div>
+            {% endif %}
+          </div>
+        </div>
+        <div class="row best-sallet-row">
+          <div class="col-3">
+            {% if section.settings.title != blank %}
+              <img class="best-saller-image" src="{{section.settings.image-icon-infant | img_url: 'master'}}" alt="">
+            {% endif %}
+          </div>
+          <div class="col-9">
+            {% if section.settings.title != blank %}
+            <div class="best-sallet-content">{{section.settings.content-infant}}</div>
+            {% endif %}
+          </div>
+        </div>
+        <div class="row best-sallet-row">
+          <div class="col-3">
+            {% if section.settings.title != blank %}
+              <img class="best-saller-image" src="{{section.settings.image-icon-sleep | img_url: 'master'}}" alt="">
+            {% endif %}
+          </div>
+          <div class="col-9">
+            {% if section.settings.title != blank %}
+            <div class="best-sallet-content">{{section.settings.content-sleep}}</div>
+            {% endif %}
+          </div>
+        </div>
+        <button class="best-sallet-btn">VIEW PRODUCT</button>
+      </div>
+      <div class="col-xl-5">
+        {% if section.settings.video_oanh != blank %}
+        <div class="best-saler-video">
+          
+          <!-- <video src="{{section.settings.product_description_video}}"></video> -->
+          <iframe width="100%" height="828px"  src="{{section.settings.video_oanh}}" title="YouTube video player" frameborder="0" 
+           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+          
+        {% endif %}
+      </div>
+    </div>
+  </div>
+</section>
+{% schema %}
+{
+   "name": "Best Saler",
+    "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Heading",
+     "default": "Best Seller"
+    },
+    {
+      "type": "text",
+      "id": "title-content",
+      "label": "Heading",
+     "default": "Crib Mattress"
+    },
+    {
+      "type": "image_picker",
+      "id": "image-icon-baby",
+      "label": "Image"
+    },
+    {
+      "type": "text",
+      "id": "content-baby",
+      "label": "Content",
+      "default": "Lorem Ipsum is simply dummy text of the printing and typesetting"
+    },
+    {
+      "type": "image_picker", 
+      "id": "image-icon-mattress",
+      "label": "Image"
+    },
+    {
+      "type": "text",
+      "id": "content-mattress",
+      "label": "Content",
+      "default": "Lorem Ipsum is simply dummy text of the printing and typesetting"
+    },
+    {
+      "type": "image_picker",
+      "id": "image-icon-infant",
+      "label": "Image"
+    },
+    {
+      "type": "text",
+      "id": "content-infant",
+      "label": "Content",
+      "default": "Lorem Ipsum is simply dummy text of the printing and typesetting"
+    },
+    {
+      "type": "image_picker",
+      "id": "image-icon-sleep",
+      "label": "Image"
+    },
+    {
+      "type": "text",
+      "id": "content-sleep",
+      "label": "Content",
+      "default": "Lorem Ipsum is simply dummy text of the printing and typesetting"
+    },
+    {
+     "type": "text",
+     "id": "video_oanh",
+     "label": "Video"
+    },
+    {
+      "type": "video_url",
+      "id": "product_description_video",
+      "label": "Product description video",
+      "accept": [
+        "youtube",
+        "vimeo"
+      ]
+    }
+    ],
+  "presets": [
+    {
+        "category": "Best Saler",
+        "name":"Best Saler"
+    }
+  ]
+}
+{% endschema %}
+  

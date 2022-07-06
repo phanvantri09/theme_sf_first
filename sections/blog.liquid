@@ -1,0 +1,85 @@
+<div style="margin-top: 175px;">
+    <div class='wave-top-blog'></div>
+    <div class="wave-mid-blog">
+      {% if section.settings.product != blank %} 
+        <div class="featured-product-tilte">{{section.settings.product}}</div>
+      {% endif %}
+      <div class="image-slider-blog">
+        {% for block in section.blocks %}
+          <div class="image-item-blog">
+            <div class="image-blog">
+              <img src="{{block.settings.image | img_url: 'master'}}" alt="">
+            </div>
+            <div class="image-title-blog">
+              {{block.settings.tilte2}}
+            </div>
+            <div class="image-content-blog">
+              {{block.settings.content}}
+            </div>
+            <a href="">Read more</a>
+          </div>
+        {%endfor%}
+      </div>
+    </div>
+    <div class="wave-bottom-blog"></div>
+</div>
+  {% schema %}
+    {
+      "name": "Blog",
+      "settings": [
+        {
+          "type": "text",
+          "id": "product",
+          "label": "Product",
+         "default": "Blog Articles"
+        }
+      ],
+      "blocks": [
+      {
+        "name": "Image",
+        "type": "image",
+        "settings": [
+            {
+                "type": "image_picker",
+                "id": "image",
+                "label": "Image"
+            },
+            {
+                "type": "text",
+                "id": "tilte2",
+                "label": "Image tilte",
+               "default": "Article title name"
+            },
+            {
+                "type": "text",
+                "id": "content",
+                "label": "Image content",
+                "default": "Lorem Ipsum is simply dummy text of the printing and typesetting industry..."
+            }
+        ]
+      }
+    ],
+      "presets": [
+        {
+          "name": "Blog",
+          "category": "Blog Articles",
+          "blocks": [
+            {
+              "type": "image"
+            },
+            {
+              "type": "image"
+            },
+            {
+              "type": "image"
+            },
+            {
+             "type": "image"
+            }
+          ]
+        }
+      ]
+    }
+  {% endschema %}
+  
+  

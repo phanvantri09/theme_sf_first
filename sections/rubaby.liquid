@@ -1,0 +1,78 @@
+{% if section.settings.title1 != blank %} 
+  <div class="featured-about-tilte">{{section.settings.title1}}</div>
+{% endif %}
+
+<div class="container image-slider-rubaby">
+  {% for block in section.blocks %}
+    <div class="col-6 image-item-rubaby">
+      <div class="image-rubaby d-flex justify-content-center">
+        <img src="{{block.settings.image | img_url: 'master'}}" alt="">
+      </div>
+      <div class="image-title-rubaby">
+        {{block.settings.tilte2}}
+    </div>
+    <div class="image-content-rubaby">
+        {{block.settings.content}}
+    </div>
+    </div>
+  {%endfor%}
+</div>
+  {% schema %}
+    {
+      "name": "Rubaby",
+      "settings": [
+        {
+          "type": "text",
+          "id": "title1",
+          "label": "Title",
+         "default": "Why Rubaby"
+        }
+      ],
+      "blocks": [
+      {
+        "name": "Image",
+        "type": "image",
+        "settings": [
+            {
+                "type": "image_picker",
+                "id": "image",
+                "label": "Image"
+            },
+            {
+                "type": "text",
+                "id": "tilte2",
+                "label": "Image tilte",
+               "default": "Rubaby"
+            },
+            {
+                "type": "text",
+                "id": "content",
+                "label": "Image content",
+                "default": "Lorem ipsum dolor sit amet, consectetur adipiscing elitsed"
+            }
+        ]
+    }
+    ],
+      "presets": [
+        {
+          "name": "Rubaby",
+          "category": "Rubaby",
+          "blocks": [
+            {
+              "type": "image"
+            },
+            {
+              "type": "image"
+            },
+            {
+              "type": "image"
+            },
+            {
+            "type": "image"
+            }
+          ]
+        }
+      ]
+    }
+  {% endschema %}
+  

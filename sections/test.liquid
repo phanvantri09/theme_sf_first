@@ -1,0 +1,211 @@
+
+<div class="container">
+    <p>&nbsp;</p>
+    <div id="wapper">
+        <div class="row filtering">
+            <div class="col-md-12 col-sm-12 col-xs-12">
+                <div class="row">
+                    <div class="wap-items-ss brbox" style="background-color: aqua; width: 400px">
+                        <div class="wap-ss-img">
+                            <img alt="" src="https://cdn.pixabay.com/photo/2017/02/08/14/25/computer-2048983_960_720.jpg">
+                        </div>
+                        <div class="textleft">
+                            <div style="margin-top:10px;">Điện Thoại iPhone 11 64GB - Hàng Chính Hãng</div>
+                            
+                            <div><b>14.290.000 ₫</b></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-12 col-sm-12 col-xs-12">
+                <div class="row">
+                    <div class="wap-items-ss brbox" style="background-color: aqua; width: 400px">
+                        <div class="wap-ss-img">
+                            <img alt="" src="https://cdn.pixabay.com/photo/2017/02/08/14/25/computer-2048983_960_720.jpg">
+                        </div>
+                        <div class="textleft">
+                            <div style="margin-top:10px;">Điện Thoại iPhone 11 64GB - Hàng Chính Hãng</div>
+                            
+                            <div><b>14.290.000 ₫</b></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-12 col-sm-12 col-xs-12">
+                <div class="row">
+                    <div class="wap-items-ss brbox">
+                        <div class="wap-ss-img">
+                            <img alt="" src="https://cdn.pixabay.com/photo/2017/02/08/14/25/computer-2048983_960_720.jpg">
+                        </div>
+                        <div class="textleft">
+                            <div style="margin-top:10px;">Điện Thoại iPhone 11 64GB - Hàng Chính Hãng</div>
+                            
+                            <div><b>14.290.000 ₫</b></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-12 col-sm-12 col-xs-12">
+                <div class="row">
+                    <div class="wap-items-ss brbox">
+                        <div class="wap-ss-img">
+                            <img alt="" src="https://cdn.pixabay.com/photo/2017/02/08/14/25/computer-2048983_960_720.jpg">
+                        </div>
+                        <div class="textleft">
+                            <div style="margin-top:10px;">Điện Thoại iPhone 11 64GB - Hàng Chính Hãng</div>
+                            
+                            <div><b>14.290.000 ₫</b></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-12 col-sm-12 col-xs-12">
+                <div class="row">
+                    <div class="wap-items-ss brbox">
+                        <div class="wap-ss-img">
+                            <img alt="" src="https://cdn.pixabay.com/photo/2017/02/08/14/25/computer-2048983_960_720.jpg">
+                        </div>
+                        <div class="textleft">
+                            <div style="margin-top:10px;">Điện Thoại iPhone 11 64GB - Hàng Chính Hãng</div>
+                            
+                            <div><b>14.290.000 ₫</b></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+    </div>     
+</div>
+  {% schema %}
+    {
+      "name": "Test",
+      "settings": [
+        {
+          "type": "text",
+          "id": "about",
+          "label": "Title"
+        },
+        {
+          "type": "checkbox",
+          "id": "show_share_buttons",
+          "label": "Show social sharing buttons"
+        }
+      ],
+      "blocks": [
+    {
+        "name": "Image",
+        "type": "image",
+        "settings": [
+            {
+                "type": "image_picker",
+                "id": "image1",
+                "label": "Image"
+            },
+            {
+                "type": "richtext",
+                "id": "tilte1",
+                "label": "Image tilte"
+            },
+            {
+                "type": "image_picker",
+                "id": "image2",
+                "label": "Image"
+            },
+            {
+                "type": "richtext",
+                "id": "tilte2",
+                "label": "Image tilte"
+            },
+            {
+                "type": "image_picker",
+                "id": "image3",
+                "label": "Image"
+            },
+            {
+                "type": "richtext",
+                "id": "tilte3",
+                "label": "Image tilte"
+            },
+            {
+                "type": "image_picker",
+                "id": "image4",
+                "label": "Image"
+            },
+            {
+                "type": "richtext",
+                "id": "tilte4",
+                "label": "Image tilte"
+            }
+        ]
+    }
+    ],
+      "presets": [
+        {
+          "name": "Test",
+          "category": "Test"
+        }
+      ]
+    }
+  {% endschema %}
+  
+  <script type="application/ld+json">
+  {
+    "@context": "http://schema.org/",
+    "@type": "Product",
+    "name": "{{ product.title | escape }}",
+    "url": "{{ shop.url }}{{ product.url }}",
+    {% if product.featured_image %}
+      {% assign image_size = product.featured_image.width | append: 'x' %}
+      "image": [
+        "https:{{ product.featured_image.src | img_url: image_size }}"
+      ],
+    {% endif %}
+    "description": "{{ product.description | strip_html | escape }}",
+    {% if current_variant.sku != blank %}
+      "sku": "{{ current_variant.sku }}",
+    {% endif %}
+    "brand": {
+      "@type": "Thing",
+      "name": "{{ product.vendor | escape }}"
+    },
+    {% if product.variants %}
+      "offers": [
+        {% for variant in product.variants %}
+          {
+            "@type" : "Offer",
+            "availability" : "http://schema.org/{% if product.available %}InStock{% else %}OutOfStock{% endif %}",
+            "price" : "{{ variant.price | divided_by: 100.00 }}",
+            "priceCurrency" : "{{ shop.currency }}",
+            "url" : "{{ shop.url }}{{ variant.url }}",
+            "itemOffered" :
+            {
+                "@type" : "Product",
+                {% if variant.image %}
+                  {% assign variant_image_size = variant.image.width | append: 'x' %}
+                  "image": "http:{{ variant.image.src | img_url: variant_image_size }}",
+                {% endif %}
+                {% if variant.title != blank %}
+                  "name" : "{{ variant.title | escape }}",
+                {% endif %}
+                {% if variant.sku != blank %}
+                  "sku": "{{ variant.sku }}",
+                {% endif %}
+                {% if variant.weight != blank %}
+                  "weight": {
+                    "@type": "QuantitativeValue",
+                    {% if variant.weight_unit != blank %}
+                      "unitCode": "{{ variant.weight_unit }}",
+                    {% endif %}
+                    "value": "{{ variant.weight | weight_with_unit: variant.weight_unit }}"
+                  },
+                {% endif %}
+                "url": "{{ shop.url }}{{ variant.url }}"
+            }
+          }{% unless forloop.last %},{% endunless %}
+        {% endfor %}
+      ]
+    {% endif %}
+  }
+  </script>
+  

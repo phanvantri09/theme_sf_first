@@ -1,0 +1,82 @@
+{% if section.settings.about != blank %} 
+  <div class="featured-about-tilte">{{section.settings.about}}</div>
+{% endif %}
+<div class="image-slider-about">
+  {% for block in section.blocks %}
+    <div class="image-item-about">
+      <div class="image-about">
+        <img src="{{block.settings.image | img_url: 'master'}}" alt="">
+      </div>
+      <!-- <div class="stars">
+        <form action="">
+          <input class="star star-5" id="star-5" type="radio" name="star"/>
+          <label class="star star-5" for="star-5"></label>
+          <input class="star star-4" id="star-4" type="radio" name="star"/>
+          <label class="star star-4" for="star-4"></label>
+          <input class="star star-3" id="star-3" type="radio" name="star"/>
+          <label class="star star-3" for="star-3"></label>
+          <input class="star star-2" id="star-2" type="radio" name="star"/>
+          <label class="star star-2" for="star-2"></label>
+          <input class="star star-1" id="star-1" type="radio" name="star"/>
+          <label class="star star-1" for="star-1"></label>
+        </form>
+      </div>    -->
+      <!-- <ion-icon name="star-outline" style="width: 50px; height: 50px; color: aqua;"></ion-icon> -->
+      <div class="image-title-about">
+        {{block.settings.tilte}}
+      </div>
+    </div>
+  {%endfor%}
+</div>
+  {% schema %}
+    {
+      "name": "About",
+      "settings": [
+        {
+          "type": "text",
+          "id": "about",
+          "label": "Title",
+         "default": "What Moms Say About"
+        }
+      ],
+      "blocks": [
+      {
+        "name": "Image",
+        "type": "image",
+        "settings": [
+            {
+                "type": "image_picker",
+                "id": "image",
+                "label": "Image"
+            },
+            {
+                "type": "richtext",
+                "id": "tilte",
+                "label": "Image tilte"
+            }
+        ]
+    }
+    ],
+      "presets": [
+        {
+          "name": "About",
+          "category": "About",
+          "blocks": [
+          {
+            "type": "image"
+          },
+          {
+            "type": "image"
+          },
+          {
+            "type": "image"
+          },
+          {
+           "type": "image"
+          }
+        ]
+        }
+      ]
+    }
+  {% endschema %}
+  
