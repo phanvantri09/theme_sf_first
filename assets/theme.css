@@ -182,6 +182,88 @@ section
 {
 	height: 100%;
 }
+.item-sliderr{
+	display: flex; 
+	justify-content: center; 
+	align-items: center;
+}
+.button-sliderr{
+	position: absolute;
+    top: 50%;
+    right: 0;
+    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    background-color: none;
+    color: #373873;
+    font-size: 16px;
+    padding: 12px 24px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    text-align: center;
+}
+.button-sliderr li{
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	height: 22px;
+	width: 22px;
+	
+	
+}
+.banner-header{
+	height: 909px;
+	background-color: #ecf3ff;
+}
+.carousel{
+	padding-top:104px ;
+	position: relative;
+	
+}
+.img-banner-header{
+	height: 805px;
+	width: 1028px;
+}
+.content-text-banner{
+	display: flex;
+	justify-content: right;
+	align-items: center;
+	align-content: center;
+	right: 0;
+}
+.main-content-text-banner{
+	width: 532px;
+}
+.title-text-banner{
+	font-size: 48px;
+	color: #373873;
+}
+.content-text-banner-m{
+	font-size: 28px;
+	color: #373873;
+}
+.btn-shop-noww{
+	height: 62px;
+	width: 207px;
+	border: none;
+	border-radius: 30px;
+	background-color: rgb(247, 138, 49);
+}
+.btn-shop-noww a{
+	text-decoration: none;
+
+	color:white;
+	font-size: 20px;
+	font-weight: bold;
+}
+.button-sliderr li i{
+	color: #b8baf3;
+}
+.button-sliderr .active{
+	color: #373873;
+	border: 1px solid #747475;
+	border-radius: 11px;
+}
 .super_container
 {
 	width: 100%;
@@ -1308,10 +1390,51 @@ select option
 
 @media only screen and (max-width: 767px)
 {
+	.title-text-banner{
+		font-size: 30px;
+		margin-top: 20px;
+	}
+	.content-text-banner-m{
+		font-size: 17px;
+		margin-top: 10px;
+
+	}
+	.btn-shop-noww{
+		margin-top: 10px;
+
+		height: 36px;
+		width: 100px;
+		border-radius: 18px;
+	}
+	.btn-shop-noww a{
+		font-size: 15px;
+	}
+
+	.button-sliderr{
+		display: flex;
+		justify-content: center;
+		top: none;
+    	right: 16%;
+		padding-top: 570px;
+	}
+	
+	.banner-header {
+		height: 595px;
+		background-color: #ecf3ff;
+	}
+	.carousel {
+		padding-top: 40px;
+	}
+	.img-banner-header{
+		height: 328.51px;
+		width: 398px;
+		margin-top: 35px;
+	}
 	.headphone_container{
 		visibility: hidden;
 		display: none;
 	}
+	
 	.header_search
 	{
 		display: none;
