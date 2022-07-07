@@ -184,4 +184,35 @@ $(document).ready(function(){
             }, 
       ]
     });
+    $('.image-slider-collection').slick({
+      slidesToShow: 5,
+      slidesToScroll: 2,
+      infinite: true,
+      // centerMode: true,
+      arrows: false,
+      // autoplay: true,
+      // autoplaySpeed: 1500,
+      draggable: false,
+      prevArrow:`<button type='button' class='slick-prev slick-arrow'><ion-icon name="chevron-back-outline"></ion-icon></button>`,
+      nextArrow:`<button type='button' class='slick-next slick-arrow'><ion-icon name="chevron-forward-outline"></ion-icon></button>`,
+      dots: false,
+      responsive:[
+          {
+              breakpoint: 1200,
+              settings: {
+                slidesToShow: 3,
+                arrows: false,
+                dots: true,
+              }
+            }, 
+            {
+              breakpoint: 800,
+              settings: {
+                slidesToShow: 2,
+                arrows: false,
+                dots: true,
+              }
+            }, 
+      ]
+    });
   });

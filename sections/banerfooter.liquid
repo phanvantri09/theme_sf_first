@@ -1,0 +1,68 @@
+<div style="margin-top: 148px;">
+    <div class='wave-top-banerfooter'></div>
+    <div class="wave-mid-banerfooter">
+        <div  class="container-fluid">
+            <div class="row d-flex align-items-center">
+                <div class="col-md-5 col-12" id="banerfooter-item">
+                    <div class="banerfooter-item">
+                        {% if section.settings.image != blank %}
+                            <img src="{{section.settings.image | img_url: 'master'}}" alt="">
+                        {% endif %}
+                        {% if section.settings.tilte != blank %}
+                            <div class="banerfooter-item-tilte">{{section.settings.tilte}}</div>
+                        {% endif %}
+                        {% if section.settings.content != blank %}
+                            <div class="banerfooter-item-content">{{section.settings.content}}</div>
+                        {% endif %}
+                        <button class="banerfooter-item-btn">SHOP NOW</button>
+                    </div>
+                </div>
+                <div class="col-md-7 col-12 baner-imgbg">
+                    {% if section.settings.image2 != blank %}
+                        <img src="{{section.settings.image2 | img_url: 'master'}}" alt="">
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="wave-bottom-banerfooter">
+        
+    </div>
+</div>
+  {% schema %}
+    {
+      "name": "Baner Footer",
+      "settings": [
+        {
+            "type": "image_picker",
+            "id": "image",
+            "label": "Image"
+        },
+        {
+            "type": "text",
+            "id": "tilte",
+            "label": "Image tilte",
+           "default": "Rubaby CTA Title"
+        },
+        {
+            "type": "text",
+            "id": "content",
+            "label": "Image content",
+            "default": "Lorem Ipsum is simply dummy text of the printing and typesetting industry"
+        },
+        {
+            "type": "image_picker",
+            "id": "image2",
+            "label": "Image Background"
+        }
+      ],
+      "presets": [
+        {
+          "name": "Baner Footer",
+          "category": "Baner Footer"
+        }
+      ]
+    }
+  {% endschema %}
+  
+  
