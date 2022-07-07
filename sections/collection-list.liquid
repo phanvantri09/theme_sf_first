@@ -18,19 +18,6 @@
         <p>{{section.settings.title-content}}</p>
       {% endif %}
     </div>
-    <!-- <div id="collection-list">
-
-      {% for block in section.blocks %}  
-        <div id="collection-list-col">
-          {%- assign collection = collections[block.settings.collection] -%}
-          <a href="{{ collection.url | default: "#" }}" class="collection-list-item" {{ block.shopify_attributes }}>
-            <img src="{{block.settings.image-collection | img_url: 'master'}}" alt="">
-            {%- assign default_label = 'homepage.onboarding.collection_title' | t -%}
-            <button class="btn">{{ collection.title}}</button>
-          </a>
-        </div>
-      {%endfor%}
-    </div> -->
     <div class="image-slider-collection">
       {% for block in section.blocks %}
         <div class="image-item-collection" >
@@ -87,6 +74,12 @@
         "name": "Collection",
         "category": "Collection",
         "blocks": [
+          {
+            "type": "collection"
+          },
+          {
+            "type": "collection"
+          },
           {
             "type": "collection"
           },
